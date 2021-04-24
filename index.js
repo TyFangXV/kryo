@@ -1,5 +1,6 @@
 const discord = require('discord.js');
 const fs = require('fs');
+const setting = require('./json/setting.json')
 const prefix1 = 'ky';
 const prefix2 ='kryo';
 const client = new discord.Client();
@@ -80,6 +81,6 @@ client.on('message', message=>{
 
 
 
-client.login("ODE0NzQzNjcyNDE1MzIyMTUz.YDiTLA.zI9fvPvO1U4zY-Fa2ZSi_xge7BI")
+client.login(setting.token)
 
 
