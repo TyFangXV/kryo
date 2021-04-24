@@ -36,37 +36,16 @@ client.on('message', message=>{
    if(message.content.startsWith(prefix1))
    {
       console.log('ky')
-      const command = message.content.slice(prefix1.length).trim(' ');
+      const command = message.content.slice(prefix1.length).trim(' ').toLowerCase();
       const args = command.split(' ');
-      if(command == 'hug')
+      if(command == 'hug' || "kiss" || 'pet' || "punch" || "confuse")
       {
-      client.command.get('hug').execute( message, discord)
+      client.command.get('emote').execute(args, message, discord, )
       }
 
       if(command == 'anime-fact')
       {
-       client.command.get('animeFact').execute(message,discord);
-      }
-      
-      if(command == 'kiss')
-      {
-      client.command.get('kiss').execute(message,discord)
-      }
-
-      if(command == 'pet')
-      {
-      client.command.get('pet').execute(message,discord)
-      }
-
-
-      if(command == 'smug')
-      {
-      client.command.get('smug').execute(message,discord)
-      }
-
-      if(command == 'punch')
-      {
-      client.command.get('punch').execute(message,discord)
+       client.command.get('anime-fact').execute(message,discord);
       }
 
       if(command == 'tell a joke')
@@ -76,12 +55,17 @@ client.on('message', message=>{
 
       if(command == "dog" || "fox" || "cat")
       {
-         client.command.get('Animal').execute(message,discord,command)
+         client.command.get('animal').execute(message,discord,command)
       }
 
       if(command == "waifu")
       {
          client.command.get('waifu').execute(message,discord)  
+      }
+
+      if(command == "help")
+      {
+         client.command.get('help').execute(message,discord)
       }
       console.log(command)
    }
@@ -89,12 +73,7 @@ client.on('message', message=>{
    if(message.content.startsWith(prefix2))
    {
       const command = message.content.slice(prefix2.length).trim(' ');
-      message.channel.send('yea what u want dumbass')
-      console.log(command);
-      if(command == "fact")
-      {
-         message.channel.send('yea what u want');         
-      }
+     
    }
 
 })

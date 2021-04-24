@@ -1,27 +1,27 @@
 const fx = require('../function/handler');
-
 module.exports = {
-name: "Animal",
-description : "send pic of animal",
-  async execute(message,discord,command)
-  {
-    let card = new discord.MessageEmbed()   
-    if(command == "fox")
+ name : "animal",
+  async execute(message,discord,args){
     {
-     let data = await fx.fox(card);
-     await message.channel.send(data);
-    }
-
-    if(command == "dog")
-    {
-      let data = await fx.dog(card);
-      await message.channel.send(data);  
-    }
-
-    if(command == "cat")
-    {
-      let data = await fx.cat(card);
-      await message.channel.send(data);
+      let card = new discord.MessageEmbed()   
+      if(args == "fox")
+      {
+       let data = await fx.fox(card);
+       await message.channel.send(data);
+      }
+  
+      if(args == "dog")
+      {
+        let data = await fx.dog(card);
+        await message.channel.send(data);  
+      }
+  
+      if(args == "cat")
+      {
+        let data = await fx.cat(card);
+        await message.channel.send(data);
+      }
     }
   }
 };
+

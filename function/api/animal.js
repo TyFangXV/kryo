@@ -45,6 +45,31 @@ const cat = async()=>{
     } 
 }
 
-module.exports = {cat, foxy, dogo}
+
+
+
+
+const CatFact = async()=>{
+
+ const req = axios.get('https://brianiswu-cat-facts-v1.p.rapidapi.com/facts',
+  {
+      headers: {
+        'x-rapidapi-key': 'dcddb45f07msh5d172b911e8ef18p1a17f9jsn30d7f4972b4f',
+        'x-rapidapi-host': 'brianiswu-cat-facts-v1.p.rapidapi.com'
+      }
+  });
+  
+  if(req !== Error || undefined || null)
+  {
+      return req.data;
+  }
+
+  if(req == Error || undefined || null)
+  {
+      return 'err';
+  } 
+
+}
+module.exports = {cat, foxy, dogo, CatFact}
 
 

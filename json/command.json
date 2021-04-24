@@ -1,0 +1,23 @@
+{
+    "command" : [
+        {
+            "name" : "joke",
+            "command" : "ky tell a joke"
+        },
+
+        {
+            "name" : "emote",
+            "command" : "ky <action>"
+        },
+
+        {
+            "name" : "animal",
+            "command" : "ky <animal>"   
+        },
+
+        {
+            "name" : "waifu",
+            "command" : "ky waifu"
+        }
+    ]
+}
