@@ -1,11 +1,9 @@
+require('dotenv').config();
 const discord = require('discord.js');
 const fs = require('fs');
-const setting = require('./json/setting.json')
-const prefix1 = 'ky';
-const prefix2 ='kryo';
+const prefix1 = process.env.PREFIX;
 const client = new discord.Client();
 client.command = new  discord.Collection();
-const card = new discord.MessageEmbed();
 
 
 //searches for file that end with .js
@@ -64,23 +62,29 @@ client.on('message', message=>{
          client.command.get('waifu').execute(message,discord)  
       }
 
+      
       if(command == "help")
       {
          client.command.get('help').execute(message,discord)
       }
-      console.log(command)
-   }
+      
+      if(command == "meme")
+      {
+         client.command.get('meme').execute(message, discord);
+      }
 
-   if(message.content.startsWith(prefix2))
-   {
-      const command = message.content.slice(prefix2.length).trim(' ');
-     
+
+      if(command == "gm" || "good morning")
+      {
+         client.command.get('gm').execute(message, discord)
+      }
    }
+   
 
 })
 
 
 
-client.login(setting.token)
+client.login(process.env.TOKEN);
 
 

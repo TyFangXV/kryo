@@ -12,12 +12,27 @@
 
         {
             "name" : "animal",
-            "command" : "ky <animal>"   
+            "command" : "ky <cat, fox, dog>"   
         },
 
         {
             "name" : "waifu",
             "command" : "ky waifu"
+        },
+
+        {
+            "name" : "meme",
+            "command" : "ky meme"
+        },
+
+        {
+           "name" : "waifu",
+           "command" : "ky waify"
+        },
+
+        {
+            "name" : "anime fact",
+            "command" : "ky anime-fact"
         }
     ]
 }

@@ -1,31 +1,22 @@
 const anix = require('./api/anix');
 const fx = require('./api/general')
-const dcord = require('discord.js');
-const cards = new dcord.MessageEmbed();
 const animal = require('./api/animal');
-const { format } = require('mathjs');
 
 
-    const AnimeFact = async(card)=>{
-   try{      
+const AnimeFact = async(card)=>{   
   let data = await fx.AnimeFact();
        card
          .setTitle('*kryo*')
          .setColor('#fa078d')
          .setDescription(data.fact)
       return card;
-    }catch(error)
-    {
-      return error.message;
-    }
     }
 
 
     const Waifu = async(card)=>{
-      try {   
         let data = await anix.waifu();
+        console.log(data);
         card
-         .setTitle(data.names.en)
          .setColor('#fa078d')
          .addFields(
            {
@@ -62,23 +53,16 @@ const { format } = require('mathjs');
           }
         )
         return card; 
-      } catch (error) {
-        return error.message;
       }
-    }
 
 
-    const AnimeGif = async(action,card)=>{
-      try {  
+    const AnimeGif = async(action,card)=>{ 
         let data = await anix.animeGif(action);
          card
           .setTitle('*kryo*')
           .setColor('#fa078d')
           .setImage(data.post.url)
         return card;
-      } catch (error) {
-         return error.message;
-      }
     }
 
 
@@ -112,17 +96,18 @@ const { format } = require('mathjs');
 
 
     const joke = async(type)=>{
-      try {
         let data = await fx.joke(type);
         let joke = `${data[0].setup}\n ${data[0].punchline}`
         return joke;
-      } catch (error) 
-      {
-        console.log(error);
-        return 'err'
-      }
+  }
+
+  const meme = async(card)=>{
+      let data = await fx.meme();
+      card  
+        .setImage(data.url)
+      return card
   }
 
 
 
-module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu}
+module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme}

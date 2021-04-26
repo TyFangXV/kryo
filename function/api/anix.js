@@ -1,5 +1,7 @@
 const { default: axios } = require("axios");
+const nekoLife = require('nekos.life') 
 const {randomInt} = require('mathjs');
+const nk = new nekoLife().sfw;
 
 const GetRandomDataPoint = (data)=>{
    let min = 0;
@@ -12,26 +14,32 @@ const GetRandomDataPoint = (data)=>{
 
 //animu-waifu
 const waifu = async()=> {
-    //takes data from the url
-    const req = await axios.get('https://animu.p.rapidapi.com/waifus',{ 
-        //passes the headers in for the url
-         headers : {
-      "x-rapidapi-key": "0dad1a668cmshc12797096b06beep16df1ejsn7fb6e4106e1f",
-      "x-rapidapi-host": "animu.p.rapidapi.com",
-      "useQueryString": true }});
-      
-      //if the req doesnt return Error, undefined and null
-      if(req !== Error || undefined || null)
-      {
-          return req.data;
-      }
-      
-      //if the req doesnt return Error, undefined and null
-      if(req == Error || undefined || null)
-      {
-          return 'err';
-      }
- }
+        var options = {
+            method: 'GET',
+            url: 'https://animu.p.rapidapi.com/waifu',
+            headers: {
+              auth: '94c6b5fd12661c1f6fed3797de705467d7500eb69084',
+              'x-rapidapi-key': '0dad1a668cmshc12797096b06beep16df1ejsn7fb6e4106e1f',
+              'x-rapidapi-host': 'animu.p.rapidapi.com'
+            }
+          };
+          try {
+            let req = await axios.request(options);
+            return req.data   
+          } catch (error) {
+            return error;
+          }
+}
+
+
+const waifu2 = async()=>{
+    try {
+        const req = await axios.get('https://nekos.life/api/v2/img/waifu');
+        return req.data
+    } catch (error) {
+    return error
+    }
+}
 
 //kryx
 const animeGif = async(action)=> {
@@ -56,11 +64,6 @@ const animeGif = async(action)=> {
      }
 }
 
-
-
-
- 
-
-module.exports = {animeGif, waifu}
+module.exports = {animeGif, waifu,waifu2}
 
 
