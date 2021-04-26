@@ -74,7 +74,7 @@ client.on('message', message=>{
       }
 
 
-      if(command == "gm" || "good morning")
+      if(command == "gm")
       {
          client.command.get('gm').execute(message, discord)
       }
