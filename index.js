@@ -1,6 +1,7 @@
 require('dotenv').config();
 const discord = require('discord.js');
 const fs = require('fs');
+const prefix2 = process.env.PREFIX2;
 const prefix1 = process.env.PREFIX;
 const client = new discord.Client();
 client.command = new  discord.Collection();
@@ -78,6 +79,19 @@ client.on('message', message=>{
       {
          client.command.get('gm').execute(message, discord)
       }
+
+
+      if(command == 'inspire')
+      {
+         client.command.get('quotes').execute(message, discord)
+      }
+   }
+
+
+   if(message.content.startsWith(prefix2))
+   {
+      const command = message.content.slice(prefix2.length).trim(' ').toLowerCase();
+      client.command.get('question').execute(command, message);
    }
    
 

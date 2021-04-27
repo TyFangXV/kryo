@@ -1,8 +1,0 @@
-applications:
-- path: .
-  memory: 256M
-  instances: 1
-  domain: apps.internal
-  name: kryx:kryo-bot
-  host: kryx:kryo-bot
-  disk_quota: 256M
