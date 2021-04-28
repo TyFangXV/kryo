@@ -21,7 +21,7 @@ module.exports = {
           {
               await message.reply('*kryo* prayed to have happiness in your life')
           } 
-        else if(commad = "are u gay")
+        else if(command = "are u gay")
           {
               message.reply('do i look gay to u')
           }  
