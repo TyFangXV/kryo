@@ -28,7 +28,7 @@ module.exports = {
         //command-5
          if(command == "gn")
            {
-             await message.reply("gm. sleep well")
+             await message.reply("gN. sleep well")
            }  
           
          if(command == "hi")
