@@ -2,37 +2,45 @@
     "command" : [
         {
             "name" : "joke",
-            "command" : "ky tell a joke"
+            "command" : "*ky tell a joke*"
         },
 
         {
             "name" : "emote",
-            "command" : "ky <action>"
+            "command" : "*ky <action>*"
         },
 
         {
             "name" : "animal",
-            "command" : "ky <cat, fox, dog>"   
+            "command" : "*ky <cat, fox, dog>*"   
         },
 
         {
             "name" : "waifu",
-            "command" : "ky waifu"
+            "command" : "*ky waifu*"
         },
 
         {
             "name" : "meme",
-            "command" : "ky meme"
+            "command" : "*ky meme*"
         },
 
         {
            "name" : "waifu",
-           "command" : "ky waify"
+           "command" : "*ky waify*"
         },
 
         {
             "name" : "anime fact",
-            "command" : "ky anime-fact"
+            "command" : "*ky anime-fact*"
+        },
+        {
+            "name" : "inspire",
+            "command" : "*ky inspire*"
+        },
+        {
+            "name" : "pickup-line",
+            "command" : "*ky tell a pickup-line*"
         }
     ]
 }

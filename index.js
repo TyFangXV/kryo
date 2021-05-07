@@ -38,6 +38,9 @@ client.on('message', message=>{
       console.log('ky')
       const command = message.content.slice(prefix1.length).trim(' ').toLowerCase();
       const args = command.split(' ');
+
+      client.command.get('question').execute(command, message);
+
       if(command == 'hug' || "kiss" || 'pet' || "punch" || "confuse")
       {
       client.command.get('emote').execute(args, message, discord, )
@@ -73,24 +76,23 @@ client.on('message', message=>{
       {
          client.command.get('meme').execute(message, discord);
       }
-
-
-      if(command == "gm")
+      
+      if(command == "tell a pickup-line")
       {
-         client.command.get('gm').execute(message, discord)
+        client.command.get("pickup_lines").execute(message) 
       }
-
 
       if(command == 'inspire')
       {
          client.command.get('quotes').execute(message, discord)
       }
+
+      
    }
 
 
    if(message.content.startsWith(prefix2))
    {
-      const command = message.content.slice(prefix2.length).trim(' ').toLowerCase();
       client.command.get('question').execute(command, message);
    }
    

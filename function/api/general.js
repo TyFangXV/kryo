@@ -54,6 +54,20 @@ const meme = async()=>{
     }
 }
 
+const pickup_line = async()=>{
+    let req = await axios.get('https://codeshifu-pickup-lines.glitch.me/api/random');
+    
+    if(req !== Error || undefined || null)
+    {
+        return req.data;
+    }
+    if(req == Error || undefined || null)
+    {
+        return 'err';
+    } 
+}
 
 
-module.exports = {AnimeFact, joke,meme}
+
+
+module.exports = {AnimeFact, joke,meme, pickup_line}
