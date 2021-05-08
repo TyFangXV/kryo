@@ -114,5 +114,10 @@ const AnimeFact = async(card)=>{
   }
 
 
+  const dad_joke = async()=>{
+    let data = await fx.dad_joke();
+    return data.joke;
+  }
 
-module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme, pickup_line}
+
+module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme, pickup_line, dad_joke}

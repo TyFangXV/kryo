@@ -87,15 +87,13 @@ client.on('message', message=>{
          client.command.get('quotes').execute(message, discord)
       }
 
-      
+      if(command == "tell a dad joke")
+      {
+         client.command.get("dad-joke").execute(message)
+      }
    }
 
 
-   if(message.content.startsWith(prefix2))
-   {
-      client.command.get('question').execute(command, message);
-   }
-   
 
 })
 

@@ -68,6 +68,20 @@ const pickup_line = async()=>{
 }
 
 
+const dad_joke = async()=>{
+    var options = {
+        method: 'GET',
+        url: 'https://icanhazdadjoke.com/',
+        headers: {
+          "Accept" : "application/json"
+        }
+      };
+      try {
+        let req = await axios.request(options);
+        return req.data   
+      } catch (error) {
+        return error;
+      }
+}
 
-
-module.exports = {AnimeFact, joke,meme, pickup_line}
+module.exports = {AnimeFact, joke,meme, pickup_line, dad_joke}

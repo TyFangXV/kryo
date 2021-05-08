@@ -28,13 +28,18 @@ module.exports = {
         //command-5
          if(command == "gn")
            {
-             await message.reply("gN. sleep well")
+             await message.reply("gn. sleep well")
            }  
           
          if(command == "hi")
            {
              await message.reply("hi")
-           } 
+           }
+         
+         if(command == "are u single")
+           {
+             await message.reply("nah im taken")
+           }  
 
         else
         {
