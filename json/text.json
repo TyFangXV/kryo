@@ -11,9 +11,8 @@
 
 
 	"gay" : [
-      "What do I look like?",
       "I look gay, huh?",
-      "Does that make me gay?",
+      "me gay?",
       "You think I'm gay?",
       "Do I appear gay?",
       "What am I, gay?",
@@ -22,7 +21,7 @@
 	],
 
 
-	"gm" : [
+	"hru-reply" : [
       "I hope you have a great day.",
       "I hope you enjoy your day.",
       "I hope this is going to be a wonderful day.",
@@ -50,5 +49,17 @@
       "My surname is Kryx.",
       "I have a name, Kryo.",
       "I call myself Kryo."
-	]
+	],
+
+      "gn":[
+        "goodnight Sweetheart. sleep well",
+        "goodnight. sleep well",
+        "goodnight Boo"
+      ],
+
+      "gm":[
+        "good morning sunshine. Hope u have a great day"
+      ]
+
+
 }

@@ -8,7 +8,7 @@ const AnimeFact = async(card)=>{
        card
          .setTitle('*kryo*')
          .setColor('#fa078d')
-         .setDescription(data.fact)
+         .setDescription(`*${data.fact}*`)
       return card;
     }
 
@@ -108,6 +108,16 @@ const AnimeFact = async(card)=>{
       return card
   }
 
+  const pickup_line = async()=>{
+     let data = await fx.pickup_line();
+     return data.data;
+  }
 
 
-module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme}
+  const dad_joke = async()=>{
+    let data = await fx.dad_joke();
+    return data.joke;
+  }
+
+
+module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme, pickup_line, dad_joke}

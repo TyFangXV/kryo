@@ -54,6 +54,34 @@ const meme = async()=>{
     }
 }
 
+const pickup_line = async()=>{
+    let req = await axios.get('https://codeshifu-pickup-lines.glitch.me/api/random');
+    
+    if(req !== Error || undefined || null)
+    {
+        return req.data;
+    }
+    if(req == Error || undefined || null)
+    {
+        return 'err';
+    } 
+}
 
 
-module.exports = {AnimeFact, joke,meme}
+const dad_joke = async()=>{
+    var options = {
+        method: 'GET',
+        url: 'https://icanhazdadjoke.com/',
+        headers: {
+          "Accept" : "application/json"
+        }
+      };
+      try {
+        let req = await axios.request(options);
+        return req.data   
+      } catch (error) {
+        return error;
+      }
+}
+
+module.exports = {AnimeFact, joke,meme, pickup_line, dad_joke}
