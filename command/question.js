@@ -8,11 +8,12 @@ const parser = (data)=>{
   return json;
 }
 
-let arr = ["!23123"]
-const randomDataPoint = (array)=>{
+const getRandomDataPoint = (data)=>{
+  let stringJson = JSON.stringify(data);
+  let array  = JSON.parse(stringJson);
   let min = 0, max = array.length;
   let num = math.randomInt(min, max);
-  return num;
+  return array[num];
 }
 
 module.exports = {
@@ -21,35 +22,36 @@ module.exports = {
          //command-1
          if(command == "hru")
           {
-
-              await message.reply('im doing all right')
+            let text = getRandomDataPoint(reply["hru-reply"])
+            await message.reply(`im doing all right \n ${text}`)
           }
 
         //command-2
          if(command == "wdy")
           {
-             let text = parser(reply.status);
-             let num = randomDataPoint(text);
-             console.log(num)
-              await message.reply(text[num])
+            let text = getRandomDataPoint(reply.status)
+            await message.reply(text)
           }
 
          //command-3
          if(command == "gm")
           {
-              await message.reply('gm sunshine. Hope u have a wonderful day')
+            let text = getRandomDataPoint(reply.gm)
+            await message.reply(text)
           }
 
         //command-4
          if(command == "give me happiness")
           {
-              await message.reply('*kryo* wished for you to be happy with your life.')
+            let text = getRandomDataPoint(reply.happiness)
+            await message.reply(text)
           } 
          
         //command-5
          if(command == "gn")
            {
-             await message.reply("gn. sleep well")
+            let text = getRandomDataPoint(reply.gn)
+            await message.reply(text)
            }  
 
          //command-6 
@@ -62,7 +64,12 @@ module.exports = {
          if(command == "are u single")
            {
              await message.reply("Yes")
-           }  
+           }
+           
+         if(command == "do u think im worth living")  
+           {
+             
+           }
 
         else
         {

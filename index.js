@@ -91,6 +91,11 @@ client.on('message', message=>{
       {
          client.command.get("dad-joke").execute(message)
       }
+
+      if(command == "give me an advice")
+       {
+          client.command.get('advice').execute(message)
+       }
    }
 
 

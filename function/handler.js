@@ -120,4 +120,10 @@ const AnimeFact = async(card)=>{
   }
 
 
-module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme, pickup_line, dad_joke}
+  const advice = async()=>{
+    let data = await fx.advice();
+    return data.slip.advice;
+  }
+
+
+module.exports= {AnimeGif,AnimeFact,joke,dog,fox,cat,Waifu,meme, pickup_line, dad_joke, advice}

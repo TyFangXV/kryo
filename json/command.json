@@ -31,6 +31,10 @@
             "command" : "*ky anime-fact*"
         },
         {
+            "name" : "advice",
+            "command" : "ky give me an advice"
+        },
+        {
             "name" : "inspire",
             "command" : "*ky inspire*"
         },

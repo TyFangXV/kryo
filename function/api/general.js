@@ -84,4 +84,18 @@ const dad_joke = async()=>{
       }
 }
 
-module.exports = {AnimeFact, joke,meme, pickup_line, dad_joke}
+
+const advice = async()=>{
+ const req = await axios.get("https://api.adviceslip.com/advice");
+ if(req !== Error || undefined || null)
+ {
+     return req.data;
+ }
+ if(req == Error || undefined || null)
+ {
+     return 'err';
+ }
+
+}
+
+module.exports = {AnimeFact, joke,meme, pickup_line, dad_joke, advice}
