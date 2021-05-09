@@ -25,8 +25,10 @@ for(const file of commandFiles)
 
 //when the bot is ready its logs "bot online"
 client.on('ready', ()=>{
-   console.log(`${client.users.cache.size} users in ${client.guilds.cache.size} servers, { type: “WATCHING” }`);
-   client.user.setActivity(`Watching ${client.guilds.cache.size} servers`);
+   client.guilds.cache.forEach(guild => {
+      console.log(`${guild.name} | ${guild.id}`);
+    })
+   client.user.setActivity(`kryo.tk`);
     console.log('bot online');
 })
 
