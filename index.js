@@ -96,6 +96,11 @@ client.on('message', message=>{
        {
           client.command.get('advice').execute(message)
        }
+
+       if(command == "who is the dumbest")
+        {
+           message.channel.send(`its ${process.env.DUMB}`);
+        }
    }
 
 
