@@ -25,6 +25,8 @@ for(const file of commandFiles)
 
 //when the bot is ready its logs "bot online"
 client.on('ready', ()=>{
+   console.log(`${client.users.cache.size} users in ${client.guilds.cache.size} servers, { type: “WATCHING” }`);
+   client.user.setActivity(`Watching ${client.guilds.cache.size} servers`);
     console.log('bot online');
 })
 
