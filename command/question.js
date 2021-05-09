@@ -1,5 +1,19 @@
 const reply = require("../json/text.json");
+const math = require('mathjs')
 
+//parser
+const parser = (data)=>{
+  let stringJson = JSON.stringify(data);
+  let json  = JSON.parse(stringJson);
+  return json;
+}
+
+let arr = ["!23123"]
+const randomDataPoint = (array)=>{
+  let min = 0, max = array.length;
+  let num = math.randomInt(min, max);
+  return num;
+}
 
 module.exports = {
     name : "question",
@@ -7,13 +21,17 @@ module.exports = {
          //command-1
          if(command == "hru")
           {
+
               await message.reply('im doing all right')
           }
 
         //command-2
          if(command == "wdy")
           {
-              await message.reply("im check if the servers im in, called me")
+             let text = parser(reply.status);
+             let num = randomDataPoint(text);
+             console.log(num)
+              await message.reply(text[num])
           }
 
          //command-3
@@ -28,13 +46,6 @@ module.exports = {
               await message.reply('*kryo* wished for you to be happy with your life.')
           } 
          
-         //command-8
-         if(command = "are u gay")
-          {
-              message.reply('do i look gay to u')
-          }  
-
-
         //command-5
          if(command == "gn")
            {
@@ -50,7 +61,7 @@ module.exports = {
          //command-7
          if(command == "are u single")
            {
-             await message.reply("nah im taken")
+             await message.reply("Yes")
            }  
 
         else
