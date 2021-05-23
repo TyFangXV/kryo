@@ -66,10 +66,15 @@ module.exports = {
              await message.reply("Yes")
            }
            
-         if(command == "do u think im worth living")  
+         if(command == "are u worth living")  
            {
-             
+             await message.reply("idk..depends if anyone is gonna use me")
            }
+          
+         if(command == "ily")
+           {
+             await message.reply("ly2...but i cant love a person")
+           }  
 
         else
         {
