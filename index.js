@@ -28,7 +28,7 @@ client.on('ready', ()=>{
    client.guilds.cache.forEach(guild => {
       console.log(`${guild.name} | ${guild.id}`);
     })
-   client.user.setActivity(`kryo.tk`);
+   client.user.setActivity(" : 'ky help'",({type: "WATCHING"}));
     console.log('bot online');
 })
 
@@ -45,7 +45,7 @@ client.on('message', message=>{
 
       client.command.get('question').execute(command, message);
 
-      if(command == 'hug' || "kiss" || 'pet' || "punch" || "confuse")
+      if(command == 'hug' || "kiss" || 'pet' || "punch" || "confuse" || "cry")
       {
       client.command.get('emote').execute(args, message, discord, )
       }
@@ -105,7 +105,8 @@ client.on('message', message=>{
         {
            message.channel.send(`its ${process.env.DUMB}`);
         }
-   }
+
+      }
 
 
 

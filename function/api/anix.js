@@ -32,7 +32,7 @@ const waifu = async()=> {
 }
 
 
-const waifu2 = async()=>{
+const catText = async()=>{
     try {
         const req = await axios.get('https://nekos.life/api/v2/img/waifu');
         return req.data
@@ -64,6 +64,6 @@ const animeGif = async(action)=> {
      }
 }
 
-module.exports = {animeGif, waifu,waifu2}
+module.exports = {animeGif, waifu}
 
 

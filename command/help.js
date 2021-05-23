@@ -7,7 +7,7 @@ module.exports = {
      card
       .setColor('#fa078d')
       .setTitle('**Kryo help**')
-      .setDescription(`if u like to add this bot to your server, click here https://bit.ly/3h3Z0tY`)
+      .setDescription(`if u like to add this bot to your server, click here http://bit.ly/kryo5002`)
       cmd.command.forEach( async i => {
           card
           .addFields({name : i.name, value : i.command})
