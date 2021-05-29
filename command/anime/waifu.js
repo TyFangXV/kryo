@@ -1,4 +1,4 @@
-const fx = require('../function/handler');
+const fx = require('../../function/handler');
 module.exports = {
  name : "waifu",
  descritpion : 'sends a waifu',

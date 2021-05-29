@@ -1,4 +1,4 @@
-const reply = require("../json/text.json");
+const reply = require("../../json/text.json");
 const math = require('mathjs')
 
 //parser

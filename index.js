@@ -7,18 +7,26 @@ const client = new discord.Client();
 client.command = new  discord.Collection();
 
 
-//searches for file that end with .js
-const commandFiles = fs.readdirSync('./command').filter(file => file.endsWith('.js'));
+fs.readdir('./command', (err, folders)=>{
+   
+   folders.forEach((folder)=>{
+      //searches for file that end with .js
+      const commandFiles = fs.readdirSync(`./command/${folder}`).filter(file => file.endsWith('.js'));
+      
+      //sets every file that end with .js as a command
+      for(const file of commandFiles)
+      {
+         for (const file of commandFiles) {
+            const command = require(`./command/${folder}/${file}`);
+      
+            client.command.set(command.name, command);
+         }
+      }
+   })
 
-//sets every file that end with .js as a command
-for(const file of commandFiles)
-{
-   for (const file of commandFiles) {
-      const command = require(`./command/${file}`);
 
-      client.command.set(command.name, command);
-   }
-}
+})
+
 
 
 
@@ -39,7 +47,6 @@ client.on('message', message=>{
    
    if(message.content.startsWith(prefix1))
    {
-      console.log('ky')
       const command = message.content.slice(prefix1.length).trim(' ').toLowerCase();
       const args = command.split(' ');
 
@@ -111,6 +118,10 @@ client.on('message', message=>{
 
 
 })
+
+
+
+
 
 
 

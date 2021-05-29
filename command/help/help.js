@@ -1,4 +1,4 @@
-const cmd = require('../json/command.json');
+const cmd = require('../../json/command.json');
 
 module.exports = {
  "name" : "help",
