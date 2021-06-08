@@ -2,7 +2,7 @@
   "name": "kryo-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node .",
     "test": "nodemon ."
@@ -22,10 +22,12 @@
     "anime-facts": "^4.2.8",
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
-    "discord.js-commando": "^0.12.3",
     "dotenv": "^8.2.0",
     "inspirational-quotes": "^1.0.8",
     "mathjs": "^9.3.0",
     "prettier": "^2.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0"
   }
 }

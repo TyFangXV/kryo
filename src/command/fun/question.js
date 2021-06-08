@@ -19,6 +19,7 @@ const getRandomDataPoint = (data) => {
 
 module.exports = {
   name: "question",
+  status : "dev",
   async execute(command, message) {
     //command-1
     if (command == "hru") {
