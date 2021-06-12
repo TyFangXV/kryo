@@ -6,6 +6,8 @@ const prefix = process.env.PREFIX;
 const client = new discord.Client();
 client.command = new discord.Collection();
 
+const coolDown = 9 * 1000;
+const talkedRecently = new Set();
 
 //#region  bot-command-initialization 
 
@@ -66,9 +68,9 @@ client.on("message", (message) => {
 
       let skip = false;
 
-      fs.readdir("./src/command", (err, folders) => {
+      fs.readdir("./src/command", async(err, folders) => {
 
-         folders.forEach((folder) => {
+         folders.forEach(async(folder) => {
                //loops through the folder and get all the files that end with js
                const commandFiles = fs.readdirSync(`./src/command/${folder}`).filter((file) => file.endsWith(".js"));
 
@@ -78,11 +80,30 @@ client.on("message", (message) => {
                      {
                         if (file.split(".")[0] == command) 
                         {
-                           try {                      
+                           try {               
+                            //if the command is not in development then it will send the command result       
                             if(client.command.get(command).status !== "dev")   
                              {
-                                client.command.get(command).execute(message, discord, args);
-                                skip = true;
+
+                            if (talkedRecently.has(message.author.id)) 
+                            {
+                               let card = new discord.MessageEmbed;
+                                 card
+                                   .setColor("#fa078d")
+                                   .setTitle(`**cooldown ${coolDown / 1000}s**`)
+                                   .setDescription("I would appreciate your patience")
+                               message.channel.send(card);
+                            } else 
+                            {
+                              client.command.get(command).execute(message, discord, args);
+                                // Adds the user to the set so that they can't talk for a minute
+                                talkedRecently.add(message.author.id);
+                                setTimeout(() => {
+                                  // Removes the user from the set after a minute
+                                  talkedRecently.delete(message.author.id);
+                                }, coolDown);
+                            }
+
                              }else
                              {
                                 message.channel.send("The command is still under development")
