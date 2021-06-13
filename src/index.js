@@ -13,9 +13,11 @@ const talkedRecently = new Set();
 
 
 //#region database connection
-  mongoose.connect(process.env.DB, {useNewUrlParser : true, useUnifiedTopology : true},()=>{
+/*  
+mongoose.connect(process.env.DB, {useNewUrlParser : true, useUnifiedTopology : true},()=>{
      console.log("mongoose connected")
-  })
+  }) 
+*/
 //#endregion
 
 //#region  bot-command-initialization 
