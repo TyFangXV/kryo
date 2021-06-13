@@ -19,12 +19,14 @@
   },
   "homepage": "https://github.com/TyFangXV/Kryo-bot#readme",
   "dependencies": {
+    "acb-api": "^1.3.6",
     "anime-facts": "^4.2.8",
     "axios": "^0.21.1",
     "discord.js": "^12.5.3",
     "dotenv": "^8.2.0",
     "inspirational-quotes": "^1.0.8",
     "mathjs": "^9.3.0",
+    "mongoose": "^5.12.13",
     "prettier": "^2.3.0"
   },
   "devDependencies": {
