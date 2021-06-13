@@ -1,6 +1,6 @@
 const { default: axios } = require("axios");
 const { randomInt } = require("mathjs");
-
+const anix = require("acb-api")
 const GetRandomDataPoint = (data) => {
   let min = 0;
   let max = data.quantity;
@@ -11,20 +11,11 @@ const GetRandomDataPoint = (data) => {
 
 //animu-waifu
 const waifu = async () => {
-  var options = {
-    method: "GET",
-    url: "https://animu.p.rapidapi.com/waifu",
-    headers: {
-      auth: "94c6b5fd12661c1f6fed3797de705467d7500eb69084",
-      "x-rapidapi-key": "0dad1a668cmshc12797096b06beep16df1ejsn7fb6e4106e1f",
-      "x-rapidapi-host": "animu.p.rapidapi.com",
-    },
-  };
   try {
-    let req = await axios.request(options);
-    return req.data;
+    const data = await anix.get_random_character();
+    return data;
   } catch (error) {
-    return error;
+    console.log(error)
   }
 };
 

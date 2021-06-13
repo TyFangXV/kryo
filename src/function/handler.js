@@ -12,37 +12,23 @@ const Waifu = async (card) => {
   let data = await anix.waifu();
   card
     .setColor("#fa078d")
-    .addFields({
-      name: data.from.type,
-      value: data.from.name,
-    })
-    .setImage(data.images[0])
+    .setThumbnail(data.anime_image)
+    .setFooter(data.id, data.character_image)
+    .setTitle(data.origin)
+    .setImage(data.character_image)
+    .setDescription(data.desc)
     .addFields(
       {
-        name: "Favorite",
-        value: `✨:${data.statistics.fav}`,
+        name: "name",
+        value: data.name,
         inline: true,
       },
       {
-        name: "love",
-        value: `❤️:${data.statistics.love}`,
+        name: "gender",
+        value: data.gender,
         inline: true,
       },
-      {
-        name: "hate",
-        value: `😡:${data.statistics.hate}`,
-        inline: true,
-      },
-      {
-        name: "upvote",
-        value: `⬆️:${data.statistics.upvote}`,
-        inline: true,
-      },
-      {
-        name: "downvote",
-        value: `⬇️:${data.statistics.downvote}`,
-        inline: true,
-      }
+
     );
   return card;
 };

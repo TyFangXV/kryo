@@ -4,10 +4,19 @@ const fs = require("fs");
 const path = require("path")
 const prefix = process.env.PREFIX;
 const client = new discord.Client();
+const mongoose = require("mongoose");
 client.command = new discord.Collection();
 
 const coolDown = 9 * 1000;
 const talkedRecently = new Set();
+
+
+
+//#region database connection
+  mongoose.connect(process.env.DB, {useNewUrlParser : true, useUnifiedTopology : true},()=>{
+     console.log("mongoose connected")
+  })
+//#endregion
 
 //#region  bot-command-initialization 
 
@@ -56,11 +65,15 @@ client.on("ready", () => {
 
 //#region discord-command-handler
 client.on("message", (message) => {
+
+ 
+
    //return null if the user is a bot or doesnt start with the prefix
    if (message.author.bot) return null;
 
    if (message.content.startsWith(prefix)) 
    {
+
 
       //trim the prefix out of the message to get the command and then convert any uppercase letter to lowercase
       const command = message.content.slice(prefix.length).trim(" ").toLowerCase().split(" ")[0];
@@ -110,7 +123,7 @@ client.on("message", (message) => {
                                 skip = true;
                              }
                            } catch (error) {
-                              message.channel.send(`error : ${error.message}`);
+                              message.channel.send(`error at ${file.split(".")[0]}: ${error.message}`);
                               skip = true;
                            }
                         }
