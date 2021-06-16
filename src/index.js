@@ -12,12 +12,11 @@ const talkedRecently = new Set();
 
 
 
-//#region database connection
-/*  
+//#region database connection  
 mongoose.connect(process.env.DB, {useNewUrlParser : true, useUnifiedTopology : true},()=>{
      console.log("mongoose connected")
   }) 
-*/
+
 //#endregion
 
 //#region  bot-command-initialization 
@@ -76,7 +75,6 @@ client.on("message", (message) => {
    if (message.content.startsWith(prefix)) 
    {
 
-
       //trim the prefix out of the message to get the command and then convert any uppercase letter to lowercase
       const command = message.content.slice(prefix.length).trim(" ").toLowerCase().split(" ")[0];
       const args = message.content.slice(prefix.length).trim(" ").toLowerCase().slice(command.length).replace(/\s/g,'');
@@ -106,7 +104,7 @@ client.on("message", (message) => {
                                  card
                                    .setColor("#fa078d")
                                    .setTitle(`**cooldown ${coolDown / 1000}s**`)
-                                   .setDescription("I would appreciate your patience")
+                                   .setDescription("ayo, wait up")
                                message.channel.send(card);
                             } else 
                             {

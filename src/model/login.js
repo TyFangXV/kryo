@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
+require('mongoose-double')(mongoose)
 
+const types = mongoose.Schema.Types;
 
 const loginSchema = new mongoose.Schema({
     _id : {
         type : Number,
-        required : true
+        required : true,
     },
     username : {
         type : String,
@@ -15,8 +17,15 @@ const loginSchema = new mongoose.Schema({
         required : true
     },
     level : {
-        type : Number,
+        type : types.Decimal128,
         required : true
+    },
+    incrementValue : {
+        type : types.Decimal128,
+        required : true
+    },
+    property : {
+        type : Object
     }
 
 },{_id: false})
