@@ -13,11 +13,15 @@ const talkedRecently = new Set();
 const levelUpRecently = new Set();
 
 
-//#region database connection  
-mongoose.connect(process.env.DB, {useNewUrlParser : true, useUnifiedTopology : true, bufferCommands : false, useCreateIndex : false, useFindAndModify: false} ,()=>{
-  console.log("mongoose connected")
-})
+//#region database connection 
+const mongoConnect= async()=>{
 
+   await mongoose.connect(process.env.DB, {useNewUrlParser : true, useUnifiedTopology : true, bufferCommands : false, useCreateIndex : false, useFindAndModify: false} ,()=>{
+     console.log("mongoose connected")
+   })
+}
+
+mongoConnect()
 //#endregion
 
 //#region  bot-command-initialization 
