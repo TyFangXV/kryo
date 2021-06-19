@@ -66,21 +66,9 @@ client.on("ready", () => {
 //#region discord-command-handler
 client.on("message", (message) => {
  
-//#region level up
- if(!levelUpRecently.has(message.author.id))
- {
-      try{
-        levelUp(message.author)
-        levelUpRecently.add(message.author.id)
-      }catch(e){
-        console.log(e.message)
-      }
-   }
    setTimeout(() => {
       levelUpRecently.delete(message.author.id)
-   }, 60000);
-
-//#endregion
+   }, 60000 / 2);
 
    
    //return null if the user is a bot or doesnt start with the prefix
@@ -124,6 +112,18 @@ client.on("message", (message) => {
                               client.command.get(command).execute(message, discord, args, client);
                                 // Adds the user to the set so that they can't talk for a minute
                                 talkedRecently.add(message.author.id);
+                                 //#region level up
+                                 if(!levelUpRecently.has(message.author.id))
+                                 {
+                                    try{
+                                       levelUp(message.author)
+                                       levelUpRecently.add(message.author.id)
+                                    }catch(e){
+                                       console.log(e.message)
+                                    }
+                                 }
+
+                                 //#endregion                                
                                 setTimeout(() => {
                                   // Removes the user from the set after a minute
                                   talkedRecently.delete(message.author.id);
