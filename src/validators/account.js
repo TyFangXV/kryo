@@ -3,6 +3,7 @@ const path = require("path")
 const login = require("../model/login");
 
 
+//validates profile
 const profileValidator = async(message)=>{
     //the number says whethered it is a bot, the user is registered and return it
     if(!message.mentions.users.first())

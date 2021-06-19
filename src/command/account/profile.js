@@ -1,6 +1,7 @@
 require("dotenv").config()
 const path = require("path")
 const {profileValidator} = require("../../validators/account")
+//makes profile
 module.exports = {
   name: path.basename(__filename).split(".")[0],
   status : "dep",

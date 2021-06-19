@@ -1,5 +1,5 @@
 
-
+//gender validation
 const genderValidation = (gender)=>{
   let accepted = ["boy", "girl"]
   let genders = ["female", "male", "other"];

@@ -1,7 +1,7 @@
 const path = require("path")
 const {genderValidation}  =  require("../../validators/gender")
 const login = require("../../model/login");
-
+//sets setting for account
 module.exports = {
   name: path.basename(__filename).split(".")[0],
   status : "dev",
