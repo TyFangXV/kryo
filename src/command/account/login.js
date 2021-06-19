@@ -17,8 +17,11 @@ module.exports = {
           _id : parseInt(data.id),
           incrementValue : 0.15,
           username : data.username,
+          gender : "none",
+          property : {},
+          message : 0,
           money : 100,
-          level : 0.00,
+          level : "0",
          })
          user.save();
          await message.channel.send("account made");

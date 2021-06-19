@@ -1,0 +1,3 @@
+500 = not logged in
+101 = not registered user
+707 = invalid user

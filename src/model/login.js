@@ -17,15 +17,20 @@ const loginSchema = new mongoose.Schema({
         required : true
     },
     level : {
-        type : types.Decimal128,
+        type : String,
         required : true
     },
-    incrementValue : {
-        type : types.Decimal128,
+    message : {
+        type : Number,
+        required : true
+    },
+    gender : {
+        type : String,
         required : true
     },
     property : {
-        type : Object
+        type : Object,
+        required : true
     }
 
 },{_id: false})

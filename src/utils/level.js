@@ -4,12 +4,11 @@ const login =  require("../model/login");
 
 const levelUp = async(user) =>{
    const userData = await login.findById(user.id);
+   if(userData == null ) return null;
    try{
        await login.findByIdAndUpdate(user.id, {
-           level : userData.level + incrementValue
+           message : userData.message + 1
        });
-
-    console.log("data updated")
    }catch(e){
        console.log(e.message)
    }
