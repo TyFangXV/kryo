@@ -3,14 +3,13 @@ const discord = require("discord.js");
 const fs = require("fs");
 const path = require("path")
 const prefix = process.env.PREFIX;
-const {levelUp} = require("./utils/level")
 const client = new discord.Client();
 const mongoose = require("mongoose");
 client.command = new discord.Collection();
 
-const coolDown = 2 * 1000;
+const coolDown = 9 * 1000;
 const talkedRecently = new Set();
-const levelUpRecently = new Set();
+
 
 
 //#region database connection 
@@ -52,6 +51,7 @@ fs.readdir("./src/command", (err, folders) => {
 
 //#region  discord-bot
 
+
 //#region discord-bot start
 
 //when the bot is ready its logs "bot online"
@@ -70,37 +70,24 @@ client.on("ready", () => {
 
 //#region discord-command-handler
 client.on("message", (message) => {
+
  
-//#region level up
- if(!levelUpRecently.has(message.author.id))
- {
-      try{
-        levelUp(message.author)
-        levelUpRecently.add(message.author.id)
-      }catch(e){
-        console.log(e.message)
-      }
-   }
-   setTimeout(() => {
-      levelUpRecently.delete(message.author.id)
-   }, 60000);
 
-//#endregion
-
-   
    //return null if the user is a bot or doesnt start with the prefix
    if (message.author.bot) return null;
 
    if (message.content.startsWith(prefix)) 
    {
 
+
       //trim the prefix out of the message to get the command and then convert any uppercase letter to lowercase
       const command = message.content.slice(prefix.length).trim(" ").toLowerCase().split(" ")[0];
-      const args = message.content.slice(prefix.length).trim(" ").toLowerCase().slice(command.length).trim(" ").split(" ");
+      const args = message.content.slice(prefix.length).trim(" ").toLowerCase().slice(command.length).replace(/\s/g,'');
 
       let skip = false;
-  
+
       fs.readdir("./src/command", async(err, folders) => {
+
          folders.forEach(async(folder) => {
                //loops through the folder and get all the files that end with js
                const commandFiles = fs.readdirSync(`./src/command/${folder}`).filter((file) => file.endsWith(".js"));
@@ -122,11 +109,11 @@ client.on("message", (message) => {
                                  card
                                    .setColor("#fa078d")
                                    .setTitle(`**cooldown ${coolDown / 1000}s**`)
-                                   .setDescription("ayo, wait up 😧")
+                                   .setDescription("I would appreciate your patience")
                                message.channel.send(card);
                             } else 
                             {
-                              client.command.get(command).execute(message, discord, args, client);
+                              client.command.get(command).execute(message, discord, args);
                                 // Adds the user to the set so that they can't talk for a minute
                                 talkedRecently.add(message.author.id);
                                 setTimeout(() => {

@@ -5,7 +5,7 @@ const login = require("../../model/login");
 
 module.exports = {
   name: path.basename(__filename).split(".")[0],
-  status : "dep",
+  status : "dev",
   async execute(message) {
      const data = await message.author;
      const preMadeUserData = await login.findById(data.id);
@@ -14,14 +14,10 @@ module.exports = {
      {
        try {
          let user =  new login({
-          _id : parseInt(data.id),
-          incrementValue : 0.15,
-          username : data.username,
-          gender : "none",
-          property : {},
-          message : 0,
-          money : 100,
-          level : "0",
+           _id : parseInt(data.id),
+           username : data.username,
+           money : 100,
+           level : 0
          })
          user.save();
          await message.channel.send("account made");
