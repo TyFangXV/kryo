@@ -27,6 +27,7 @@
     "inspirational-quotes": "^1.0.8",
     "mathjs": "^9.3.0",
     "mongoose": "^5.12.13",
+    "mongoose-double": "0.0.1",
     "prettier": "^2.3.0"
   },
   "devDependencies": {
