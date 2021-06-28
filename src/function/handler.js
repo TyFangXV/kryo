@@ -1,4 +1,4 @@
-const anix = require("./api/anix");
+const anix = require("./api/anix/anix");
 const fx = require("./api/general");
 const animal = require("./api/animal");
 
@@ -8,30 +8,7 @@ const AnimeFact = async (card) => {
   return card;
 };
 
-const Waifu = async (card) => {
-  let data = await anix.waifu();
-  card
-    .setColor("#fa078d")
-    .setThumbnail(data.anime_image)
-    .setFooter(data.id, data.character_image)
-    .setTitle(data.origin)
-    .setImage(data.character_image)
-    .setDescription(data.desc)
-    .addFields(
-      {
-        name: "name",
-        value: data.name,
-        inline: true,
-      },
-      {
-        name: "gender",
-        value: data.gender,
-        inline: true,
-      },
 
-    );
-  return card;
-};
 
 const AnimeGif = async (action, card) => {
   let data = await anix.animeGif(action);
@@ -96,7 +73,6 @@ module.exports = {
   dog,
   fox,
   cat,
-  Waifu,
   meme,
   pickup_line,
   dad_joke,

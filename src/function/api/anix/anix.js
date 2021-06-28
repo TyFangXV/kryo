@@ -10,7 +10,7 @@ const GetRandomDataPoint = (data) => {
 };
 
 //animu-waifu
-const waifu = async () => {
+const animeCharacter = async () => {
   try {
     const data = await anix.get_random_character();
     return data;
@@ -19,14 +19,16 @@ const waifu = async () => {
   }
 };
 
-/*const catText = async()=>{
-    try {
-        const req = await axios.get('https://nekos.life/api/v2/img/waifu');
-        return req.data
-    } catch (error) {
-    return error
-    }
-}*/
+const animeCharBySearch = async(search)=>{
+  try {
+    const data = await anix.get_character_by_search(search);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
 
 //kryx
 const animeGif = async (action) => {
@@ -53,4 +55,4 @@ const animeGif = async (action) => {
   }
 };
 
-module.exports = { animeGif, waifu };
+module.exports = { animeGif, animeCharBySearch, animeCharacter};
