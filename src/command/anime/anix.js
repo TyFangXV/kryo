@@ -3,12 +3,14 @@ const anix = require("acb-api")
 let counter = 0;
 
 
-
+//randomly gets anix character data and covert it to an embed 
 const getRandomCharacter = async(discord)=>{
   let card = new discord.MessageEmbed();
   let data = await anix.get_random_character();
-  if(data == null || undefined) return card.setTitle("Error").setColor("#fa078d");
 
+  //if the data is undefined or null it will return an error message
+  if(data == null || undefined) return card.setTitle("Error").setColor("#fa078d");
+  
   card
     .setColor("#fa078d")
     .setThumbnail(data.anime_image)
