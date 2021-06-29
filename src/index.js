@@ -8,7 +8,7 @@ const client = new discord.Client();
 const mongoose = require("mongoose");
 client.command = new discord.Collection();
 
-const coolDown = 2 * 1000;
+const coolDown = 5 * 1000;
 const talkedRecently = new Set();
 const levelUpRecently = new Set();
 
