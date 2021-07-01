@@ -23,21 +23,24 @@ const get_random_character = async()=>{
     return data;
 }
 
-
+//first gets the array of character then check if the "search" matches one of the el of the array 
+//if the "search" doesnt match any el then it would return a 404 error 
+//if it does match then it would return the data of that legend that is searched up
 const get_charcter = async(search)=>{
-    //checks if the character searched up is there in the database
-    let characters  = await (await axios.get(`${baseURL}/characters/`)).data;
-    characters.forEach(legends => {
-        if(search !== legends) return 404;
-    });
-    let legendData  = await (await axios.get(`${baseURL}/characters/${legend}`)).data;
-    data = {
-        info : legendData,
-        Image : [`${baseURL}/characters/${legendData.name}/icon`,`${baseURL}/characters/${legendData.name}/portrait`]
+    try {
+        let characters  = await (await axios.get(`${baseURL}/characters/`));
+        characters.data.forEach(legends => {if(search !== legends) return "404";});
+        let legendData  = await (await axios.get(`${baseURL}/characters/${search}`)).data;
+        data = {
+            info : legendData,
+            Image : [`${baseURL}/characters/${search}/icon`,`${baseURL}/characters/${search}/portrait`]
+        }
+        return data;
+    } catch (error) {
+        return "404" 
     }
-    return data;
 }
 
 
 
-module.exports = {get_random_character}
+module.exports = {get_random_character, get_charcter}

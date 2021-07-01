@@ -34,35 +34,6 @@ const getRandomCharacter = async(discord)=>{
   return card;
 }
 
-const getCharacterBySearch = async(discord, search)=>{
-  let data = await anix.get_character_by_search(search);
-  let card = new discord.MessageEmbed();
-  if(data == null || undefined) return card.setTitle("Error").setColor("#fa078d");
-  data.forEach(l => {
-      let subCard = new discord.MessageEmbed();
-      subCard
-      .setColor("#fa078d")
-      .setThumbnail(l.anime_image)
-      .setFooter(l.id, l.character_image)
-      .setTitle(l.origin)
-      .setImage(l.character_image)
-      .setDescription(l.desc)
-      .addFields(
-        {
-          name: "name",
-          value: l.name,
-          inline: true,
-        },
-        {
-          name: "gender",
-          value: l.gender,
-          inline: true,
-        },
-  
-      );
-    return subCard;
-  });
-}
 
 
 module.exports = {
