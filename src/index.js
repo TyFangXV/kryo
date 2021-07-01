@@ -2,13 +2,15 @@ require("dotenv").config();
 const discord = require("discord.js");
 const fs = require("fs");
 const path = require("path")
+const mongoose = require("mongoose");
+
 const prefix = process.env.PREFIX;
 const {levelUp} = require("./utils/level")
+
 const client = new discord.Client();
-const mongoose = require("mongoose");
 client.command = new discord.Collection();
 
-const coolDown = 2 * 1000;
+const coolDown = 8 * 1000;
 const talkedRecently = new Set();
 const levelUpRecently = new Set();
 
